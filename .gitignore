@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# Robot Framework
+test/*.xml
+test/*.html
+
