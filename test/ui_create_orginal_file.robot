@@ -5,13 +5,13 @@ Library    Selenium2Library
 
 *** Test Cases ***
 
-Should display result 'document is created' when user inputs valid document id
+document is created (document_id = 1)
     Input document id to view a result    1    document is created
 
-Should display result 'document is not found' when user inputs invalid document id
+document is not found (document_id = 2)
     Input document id to view a result    2    document is not found
 
-Should display result 'upload failed' when uploading error occurred
+upload failed (document_id = 3)
     Input document id to view a result    3    upload failed
 
 *** Keywords ***
@@ -21,4 +21,5 @@ Input document id to view a result
     Input text      input_document_id   ${document_id}
     Click Button    button_submit
     Wait Until Page Contains   ${result_message}
+    Capture Page Screenshot
     Close browser

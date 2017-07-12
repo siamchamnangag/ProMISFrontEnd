@@ -58,6 +58,6 @@ typings/
 .env
 
 # Robot Framework
+test/*.png
 test/*.xml
 test/*.html
-
