@@ -15,14 +15,14 @@
 
             <h1>ProMISFrontend</h1>
 
-            <form ng-submit="$ctrl.createDocument($ctrl.document_id)">
+            <form name="form" ng-submit="$ctrl.createDocument($ctrl.document_id)">
 
-                            <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id><br/>
+                <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id><br/>
 
-            <button-submit ng-click="$ctrl.createDocument($ctrl.document_id)" text="'Submit'" name="'button_submit'"></button-submit>
+                <button-submit text="'Submit'" name="'button_submit'"></button-submit>
 
             </form>
-        
+
         </div>
 
         <div ng-show="$ctrl.is_clicked" class="container">
@@ -30,7 +30,7 @@
             <alert-result-success ng-if="$ctrl.status === 'success'" result="$ctrl.result" name="'alert_result_success'"></alert-result-success>
 
             <alert-result-failed ng-if="$ctrl.status === 'failed'" result="$ctrl.result" name="'alert_result_failed'"></alert-result-failed>
-            
+
         </div>
     </div>
 
