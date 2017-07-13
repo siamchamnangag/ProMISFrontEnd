@@ -15,9 +15,13 @@
 
             <h1>ProMISFrontend</h1>
 
-            <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id>
+            <form ng-submit="$ctrl.createDocument($ctrl.document_id)">
+
+                            <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id><br/>
 
             <button-submit ng-click="$ctrl.createDocument($ctrl.document_id)" text="'Submit'" name="'button_submit'"></button-submit>
+
+            </form>
         
         </div>
 
