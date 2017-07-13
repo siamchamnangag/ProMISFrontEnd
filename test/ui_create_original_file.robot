@@ -1,7 +1,9 @@
 *** Settings ***
-
-
 Library    Selenium2Library
+Test Teardown    Close Browser
+
+*** Variables ***
+${BASE_SERVER}    http://127.0.0.1:8080/
 
 *** Test Cases ***
 
@@ -17,9 +19,8 @@ upload failed (document_id = 3)
 *** Keywords ***
 Input document id to view a result
     [Arguments]    ${document_id}    ${result_message}
-    Open browser    http://127.0.0.1:8080/    GC
+    Open browser    ${BASE_SERVER}    chrome
     Input text      input_document_id   ${document_id}
     Click Button    button_submit
     Wait Until Page Contains   ${result_message}
     Capture Page Screenshot
-    Close browser
