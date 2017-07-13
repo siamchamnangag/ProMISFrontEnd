@@ -7,7 +7,8 @@ var app = angular.module('scg')
         templateUrl: '/components/input_document_id/input_document_id.html',
         bindings: {
             label: '<',
-            model: '='
+            name: '<',
+            model: '=',
         },
         controller: function () { }
     })

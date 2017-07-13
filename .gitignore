@@ -61,3 +61,4 @@ typings/
 test/*.png
 test/*.xml
 test/*.html
+.DS_Store
