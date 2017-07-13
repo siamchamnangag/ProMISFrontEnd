@@ -7,33 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body ng-controller="mainController">
+<body ng-controller="mainController as $ctrl">
 
     <div class="container-fluid">
 
         <div class="container">
+
             <h1>ProMISFrontend</h1>
 
-            <input-document-id label="'Document ID: '" name="'input_document_id'" model="$ctrl.document_id"></input-document-id>
+            <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id>
 
-            <button ng-click="createDocument($ctrl.document_id)" type="button" class="btn btn-primary" name="button_submit">Submit</button>
+            <button-submit ng-click="$ctrl.createDocument($ctrl.document_id)" text="'Submit'" name="'button_submit'"></button-submit>
+        
         </div>
 
-        <div ng-show="isClicked" class="container">
+        <div ng-show="$ctrl.is_clicked" class="container">
 
-            <div ng-if="status === 'success'" class="alert alert-success" role="alert" name="alert_result">
-                <strong>{{ result.message }}</strong><br/>
-                <strong>ID: </strong>{{ result.docid }}<br/>
-                <strong>Description: </strong>{{ result.description }}<br/>
-                <strong>Status: </strong>{{ result.status }}<br/>
-                <strong>User: </strong>{{ result.user }}<br/>
-                <strong>Link: </strong><a href="result.link">{{ result.link }}</a>
+            <alert-result-success ng-if="$ctrl.status === 'success'" result="$ctrl.result" name="'alert_result_success'"></alert-result-success>
 
-            </div>
-
-            <div ng-if="status === 'failed'" class="alert alert-danger" role="alert" name="alert_result">
-                {{ result }}
-            </div>
+            <alert-result-failed ng-if="$ctrl.status === 'failed'" result="$ctrl.result" name="'alert_result_failed'"></alert-result-failed>
             
         </div>
     </div>
@@ -41,7 +33,12 @@
     <!--cdn script tag-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
     <script src="index.js"></script>
+
+    <!--components-->
     <script src="/components/input_document_id/input_document_id.component.js"></script>
+    <script src="/components/button_submit/button_submit.component.js"></script>
+    <script src="/components/alert_result/alert_result_failed/alert_result_failed.component.js"></script>
+    <script src="/components/alert_result/alert_result_success/alert_result_success.component.js"></script>
 </body>
 
 </html>

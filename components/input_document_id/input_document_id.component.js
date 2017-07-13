@@ -10,5 +10,5 @@ var app = angular.module('scg')
             name: '<',
             model: '=',
         },
-        controller: function () { }
+        controller: inputDocumentIdController
     })
