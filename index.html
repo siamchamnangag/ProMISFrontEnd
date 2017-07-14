@@ -9,27 +9,38 @@
 
 <body ng-controller="mainController as $ctrl">
 
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Promis</a>
+            <p class="navbar-text navbar-right">{{ $ctrl.selectedUser }}</p>
+        </div>
+    </nav>
+
     <div class="container-fluid">
 
-        <div class="container">
+        <div class="center">
 
             <h1>Promis DMS Application</h1>
 
-            <form name="form" ng-submit="$ctrl.createDocument($ctrl.document_id)">
+            <form name="form" ng-submit="$ctrl.createDocument($ctrl.documentID)">
 
-                <input-document-id label="'Document ID: '" model="$ctrl.document_id" name="'input_document_id'"></input-document-id><br/>
+                <label for="">Please select a user: </label>
 
-                <button-submit text="'Submit'" name="'button_submit'"></button-submit>
+                <input-choose-user users="$ctrl.users" model="$ctrl.selectedUser"></input-choose-user><br/>
+
+                <input-document-id label="'Document ID: '" model="$ctrl.documentID" name="'input_document_id'"></input-document-id><br/>
+
+                <button-submit text="'Create'" name="'button_submit'"></button-submit>
 
             </form>
 
         </div>
 
-        <div ng-show="$ctrl.is_clicked" class="container">
+        <div ng-show="$ctrl.isSubmitted" class="container">
 
-            <alert-result-success ng-if="$ctrl.status === 'success'" result="$ctrl.result" name="'alert_result_success'"></alert-result-success>
+            <alert-result-success ng-if="$ctrl.documentService.status === 'success'" result="$ctrl.result" name="'alert_result_success'"></alert-result-success>
 
-            <alert-result-failed ng-if="$ctrl.status === 'failed'" result="$ctrl.result" name="'alert_result_failed'"></alert-result-failed>
+            <alert-result-failed ng-if="$ctrl.documentService.status === 'failed'" result="$ctrl.result" name="'alert_result_failed'"></alert-result-failed>
 
         </div>
     </div>
@@ -40,9 +51,13 @@
 
     <!--components-->
     <script src="/components/input_document_id/input_document_id.component.js"></script>
+    <script src="/components/input_choose_user/input_choose_user.component.js"></script>
     <script src="/components/button_submit/button_submit.component.js"></script>
     <script src="/components/alert_result/alert_result_failed/alert_result_failed.component.js"></script>
     <script src="/components/alert_result/alert_result_success/alert_result_success.component.js"></script>
+
+    <!--services-->
+    <script src="/services/document.service.js"></script>
 </body>
 
 </html>
