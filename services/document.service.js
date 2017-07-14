@@ -10,7 +10,7 @@ var app = angular.module('scg').service('documentService', function ($http) {
 
         var DOCUMENT_WITH_USER_URL = self.URL.replace('{document_id}', documentID).replace('{user}', user);
 
-        $http({
+        return $http({
             method: 'POST',
             url: DOCUMENT_WITH_USER_URL
         }).then(function successCallback(response) {
